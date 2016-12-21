@@ -46,16 +46,16 @@ namespace Instagram
 
 			HttpWebRequest request = MyRequests.Create (url, HttpRequests.Method.POST, headers);
 
-      if (proxy != string.Empty && proxy.Contains(":"))
-      {
-    	  string[] splitter = proxy.Split(':');
-        WebProxy prox = new WebProxy(splitter[0], Int32.Parse(splitter[1]));
-        prox.BypassProxyOnLocal = true;
-        request.Proxy = prox;
-        helpers.Log(debug, "Proxy Set: " + proxy);
-      }
+            if (proxy != string.Empty && proxy.Contains(":"))
+            {
+                string[] splitter = proxy.Split(':');
+                WebProxy prox = new WebProxy(splitter[0], Int32.Parse(splitter[1]));
+                prox.BypassProxyOnLocal = true;
+                request.Proxy = prox;
+                helpers.Log(debug, "Proxy Set: " + proxy);
+            }
 
-      MyRequests.Write (request, post);
+            MyRequests.Write (request, post);
 
 			HttpWebResponse response = (HttpWebResponse)request.GetResponse ();
 
@@ -70,7 +70,7 @@ namespace Instagram
 				helpers.Log (debug, "Session ID: " + SessionID);
 				helpers.Log (debug, "Authenticated User: " + user);
 				return true;
-			}
+			} 
 			else
 			{
 				helpers.Log (debug, "Authentication failed");
@@ -107,16 +107,16 @@ namespace Instagram
 
 			HttpWebRequest request = MyRequests.Create (url, HttpRequests.Method.POST, headers);
 
-      if (proxy != string.Empty && proxy.Contains(":"))
-      {
-        string[] splitter = proxy.Split(':');
-        WebProxy prox = new WebProxy(splitter[0], Int32.Parse(splitter[1]));
-        prox.BypassProxyOnLocal = true;
-        request.Proxy = prox;
-        helpers.Log(debug, "Proxy Set: " + proxy);
-      }
+            if (proxy != string.Empty && proxy.Contains(":"))
+            {
+                string[] splitter = proxy.Split(':');
+                WebProxy prox = new WebProxy(splitter[0], Int32.Parse(splitter[1]));
+                prox.BypassProxyOnLocal = true;
+                request.Proxy = prox;
+                helpers.Log(debug, "Proxy Set: " + proxy);
+            }
 
-      MyRequests.Write (request, post);
+            MyRequests.Write (request, post);
 			HttpWebResponse response = (HttpWebResponse)request.GetResponse ();
 
 			string html = MyRequests.GetSource(response);
@@ -178,3 +178,4 @@ namespace Instagram
 		}
 	}
 }
+
